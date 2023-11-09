@@ -213,3 +213,23 @@ def cCurveWithSample(eleName, trimmedDict, sampleName, sampleFittedX, sampleFitt
     plt.ylabel("Average Counts from 3 runs")
     plt.show()
 
+
+
+
+
+
+def tableFormatter(trimmedDict, numRuns, df):
+    colnames = df.columns[2:].insert(0, 'ele')
+    
+    transformed = pd.DataFrame(columns = colnames)
+    for keys in trimmedDict.keys():
+        for i in range(numRuns):
+            a = trimmedDict.get(keys).iloc[1 + i][2:].tolist()
+            
+            a.insert(0, keys)
+            transformed.loc[keys + ' run ' + str(i)] = a
+            
+
+
+    return transformed
+
