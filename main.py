@@ -16,8 +16,8 @@ def main():
     if sys.argv[1] == '-G':
 
         calibrationCurve = msu.calibrationCurvesDict(trimmedDict)
-        elename = sys.argv[1]
-        sampleName = sys.argv[2]
+        elename = sys.argv[2]
+        sampleName = sys.argv[3]
         xarr, yarr  = msu.ccurve(elename, trimmedDict)[0], msu.ccurve(elename, trimmedDict)[1]
         elementConcentrationX = msu.concentrationCalculation(trimmedDict, sampleName, elename)[0]
         elementConcentrationY = msu.concentrationCalculation(trimmedDict, sampleName, elename)[1]
