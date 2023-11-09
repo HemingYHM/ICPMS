@@ -4,9 +4,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import re
 
+#This function imports the file, and skips the first numsSkip rows
+def importFile(fileName, numSkip):
+    return pd.read_csv(fileName, delimiter=',', skiprows=numSkip)
+
+#This function imports the file, without skipping the first rows
+def imrportFileWithHeader(fileName):
+    return pd.read_csv(fileName, delimiter=',')
+
+
+
 
 #This function keeps track of how many different samples are run
 #Count the amout of "Average counts from 3 runs" in "Run" column
+#Probably useless function, but I'll keep it here for now
 def countSamples(df):
     sampleCount = 0
     for i in df['Run']:
@@ -15,14 +26,16 @@ def countSamples(df):
     return sampleCount
 
 #Create a dictionary of dictionaries, where the keys are the sample names, and the values are the dataframes of the sample
-#Loop through the rows, whenever the "50Cr" column contians a a string with the string PM or AM in it, extract out the unique sample name
+#Loop through the rows, whenever the the third column contians a string with the string PM or AM in it, extract out the unique sample name
 
-def createDict(df, sampleCount):
+def createDict(df, sampleRunCount):
     sampleDict = {}
+    #print the name of column 3 
+    col3 = df.columns[2]
     for i in range(len(df)):
-        if type(df['50Cr'][i]) == str:
-            if 'PM' in df['50Cr'][i] or 'AM' in df['50Cr'][i]:
-                sampleDict[df['50Cr'][i]] = df.iloc[i:i+sampleCount+3]
+        if type(df[col3][i]) == str:
+            if 'PM' in df[col3][i] or 'AM' in df[col3][i]:
+                sampleDict[df[col3][i]] = df.iloc[i:i+ sampleRunCount + 3]
     return sampleDict
 
 
@@ -45,6 +58,7 @@ def trimDictionary(sampleDict):
         newDict[word] = sampleDict.get(i)
 
     return newDict
+
 
 
 #Create a new dictionary where only names includng PPM is included, with the same value
