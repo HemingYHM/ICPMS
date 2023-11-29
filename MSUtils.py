@@ -14,7 +14,6 @@ def imrportFileWithHeader(fileName):
 
 
 
-
 #This function keeps track of how many different samples are run
 #Count the amout of "Average counts from 3 runs" in "Run" column
 #Probably useless function, but I'll keep it here for now

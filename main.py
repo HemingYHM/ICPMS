@@ -13,7 +13,9 @@ def main():
 
     #graph mode, argv[1] is the is G 
     if sys.argv[1] == '-G':
-
+        #To be fixed later to take input -S from the formatted table and eventaully use the concentration calculation to find the concentration
+        #However, the old methods uses raw data to compute
+        #TODO: make this take in the formatted table rather than raw
         calibrationCurve = msu.calibrationCurvesDict(trimmedDict)
         elename = sys.argv[2]
         sampleName = sys.argv[3]

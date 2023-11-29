@@ -1,6 +1,6 @@
 # ICPMS
 Data processing tool for ICPMS
-### Version 1.?
+### Version 1.1
 Created methods for separating out raw data, separating out samples by name and date, and prting out the tables for user to see
 
 ### Dependencies 
@@ -25,7 +25,7 @@ pip install matplotlib
 ###Command for simple formatter
 python3 main.py -S [NUMBER OF SAMPLE RUNS]
 
-###Command for grapher
+###Command for grapher, for now this is INACCURATE, and will take the raw data to run rather than the user checked formatted sample 
 python3 main.py -G TODO
 ```
 
