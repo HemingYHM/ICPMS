@@ -11,7 +11,6 @@ def main():
     trimmedDict = msu.trimDictionary(sampleDict)
     
 
-
     #graph mode, argv[1] is the is G 
     if sys.argv[1] == '-G':
 
@@ -31,8 +30,6 @@ def main():
         #Export the a to a csv file
         a.to_csv('output.csv')
         print("The output has been saved to output.csv")
-
-
 
 
 
